@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AI Киносоветчик</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1>AI Киносоветчик</h1>
+    <p>напиши, чт с тобой ии подберет фильм</p>
+    <form method="post">
+        <textarea id="message" name="message" rows="4" cols="50"
+                  required>{{ user_message }}</textarea><br>
+        <button type="submit">отправить</button>
+    </form>
+
+    {% if recommendation %}
+    <div class="result">
+        <h3>рекомендация</h3>
+        <p>{{ recommendation|safe }}</p>
+    </div>
+    {%endif%}
+</body>
+</html>
